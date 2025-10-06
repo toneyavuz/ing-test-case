@@ -10,6 +10,7 @@ import {employeeFeature} from './employee.reducer';
 export class EmployeeEffects {
   private actions$ = inject(Actions);
   private service = inject(EmployeeService);
+  private store = inject(Store);
   load$ = createEffect(() =>
     this.actions$.pipe(
       ofType(EmployeeAction.load),
@@ -68,7 +69,6 @@ export class EmployeeEffects {
       )
     )
   );
-  private store = inject(Store);
   refreshAfterMutations$ = createEffect(() =>
     this.actions$.pipe(
       ofType(EmployeeAction.createSuccess, EmployeeAction.updateSuccess, EmployeeAction.deleteSuccess),

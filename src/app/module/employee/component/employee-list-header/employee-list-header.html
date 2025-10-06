@@ -1,0 +1,24 @@
+<div class="list-header flex justify-between gap-10 px-4 md:px-6">
+  <h1 class="text-ing-500 text-2xl font-semibold leading-6">Employee List</h1>
+  <div>
+    <button
+      mat-icon-button
+      class="view-btn"
+      [class.active]="view==='list'"
+      type="button"
+      aria-label="List view"
+      (click)="setView('list')">
+      <mat-icon>view_list</mat-icon>
+    </button>
+
+    <button
+      mat-icon-button
+      class="view-btn"
+      [class.active]="view==='card'"
+      type="button"
+      aria-label="Card view"
+      (click)="setView('card')">
+      <mat-icon>grid_view</mat-icon>
+    </button>
+  </div>
+</div>

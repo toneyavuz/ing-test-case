@@ -1,0 +1,74 @@
+<ing-employee-list-header [view]="'card'" (viewChange)="onViewChange($event)"
+                          class="block mb-5"></ing-employee-list-header>
+
+<div class="px-4 md:px-6 pb-6">
+  @if (vm$().loading) {
+    <div class="p-6 text-sm text-neutral-500">Yükleniyor…</div>
+  } @else {
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+      @for (row of vm$().items; track row.id) {
+        <div class="border border-neutral-200 shadow-sm rounded-lg p-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-7 gap-y-3">
+            <div class="min-w-0">
+              <div class="text-[13px] leading-5 text-neutral-400">First Name:</div>
+              <div class="text-[20px] leading-6 text-neutral-900">{{ row.firstName }}</div>
+            </div>
+            <div class="min-w-0">
+              <div class="text-[13px] leading-5 text-neutral-400">Last Name</div>
+              <div class="text-[20px] leading-6 text-neutral-900">{{ row.lastName }}</div>
+            </div>
+
+            <div class="min-w-0">
+              <div class="text-[13px] leading-5 text-neutral-400">Date of Employment</div>
+              <div class="text-[20px] leading-6 text-neutral-900">{{ row.dateOfEmployment | date:'dd/MM/yyyy' }}</div>
+            </div>
+            <div class="min-w-0">
+              <div class="text-[13px] leading-5 text-neutral-400">Date of Birth</div>
+              <div class="text-[20px] leading-6 text-neutral-900">{{ row.dateOfBirth | date:'dd/MM/yyyy' }}</div>
+            </div>
+
+            <div class="min-w-0">
+              <div class="text-[13px] leading-5 text-neutral-400">Phone</div>
+              <div class="text-[20px] leading-6 text-neutral-900">{{ row.phone }}</div>
+            </div>
+            <div class="min-w-0">
+              <div class="text-[13px] leading-5 text-neutral-400">Email</div>
+              <div class="text-[20px] leading-6 text-neutral-900 break-all">{{ row.email }}</div>
+            </div>
+
+            <div class="min-w-0">
+              <div class="text-[13px] leading-5 text-neutral-400">Department</div>
+              <div class="text-[20px] leading-6 text-neutral-900">{{ row.department }}</div>
+            </div>
+            <div class="min-w-0">
+              <div class="text-[13px] leading-5 text-neutral-400">Position</div>
+              <div class="text-[20px] leading-6 text-neutral-900">{{ row.position }}</div>
+            </div>
+          </div>
+
+          <div class="mt-5 flex items-center gap-3">
+            <button type="button" (click)="edit(row)"
+                    class="inline-flex items-center h-10 px-4 rounded-lg bg-indigo-700 text-white text-sm font-medium hover:bg-indigo-800 active:scale-[.99]">
+              <mat-icon class="mr-2 -ml-1 text-[18px] leading-5">edit</mat-icon>
+              Edit
+            </button>
+            <button type="button" (click)="delete(row)"
+                    class="inline-flex items-center h-10 px-4 rounded-lg bg-ing-500 text-white text-sm font-medium hover:bg-ing-600 active:scale-[.99]">
+              <mat-icon class="mr-2 -ml-1 text-[18px] leading-5">delete</mat-icon>
+              Delete
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="pt-4">
+      <ing-employee-list-pagination
+        [length]="vm$().total"
+        [pageSize]="vm$().pageSize"
+        [pageIndex]="vm$().pageIndex"
+        (page)="onPage($event)">
+      </ing-employee-list-pagination>
+    </div>
+  }
+</div>

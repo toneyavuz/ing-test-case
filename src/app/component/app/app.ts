@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'ing-root',
@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './app.scss'
 })
 export class App {
-  protected title = 'ing-test-case';
 }

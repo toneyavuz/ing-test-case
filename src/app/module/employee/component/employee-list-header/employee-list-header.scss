@@ -1,0 +1,13 @@
+.view-btn {
+  @apply w-10 rounded-lg;
+
+  .mat-icon {
+    @apply text-ing-700;
+  }
+
+  &.active {
+    .mat-icon {
+      @apply text-ing-500;
+    }
+  }
+}

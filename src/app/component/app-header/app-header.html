@@ -1,0 +1,30 @@
+<mat-toolbar class="header-toolbar px-6 md:px-6">
+  <div class="cursor-pointer">
+    <img
+      ngSrc="/image/logo.png"
+      alt="ING"
+      class="h-6 md:h-7 w-auto"
+      width="238"
+      height="60"
+      decoding="async"
+      fetchpriority="high"
+      [priority]="1"
+    />
+  </div>
+
+  <span class="flex-1"></span>
+
+  <div class="flex gap-4 items-center">
+    <a class="nav-btn" type="button" routerLink="/employee">
+      <mat-icon>people</mat-icon>
+      <span>Employees</span>
+    </a>
+    <a class="nav-btn add" type="button" routerLink="/employee/add">
+      <mat-icon>add</mat-icon>
+      <span>Add New</span>
+    </a>
+    <button class="cursor-pointer" type="button" title="change language" (click)="openLanguageDialog()"
+            aria-label="Türkçe">🇹🇷
+    </button>
+  </div>
+</mat-toolbar>

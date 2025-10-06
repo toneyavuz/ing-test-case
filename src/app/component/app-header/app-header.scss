@@ -1,0 +1,20 @@
+.header-toolbar {
+  @apply max-h-16;
+}
+
+.nav-btn {
+  @apply text-ing-500 text-lg inline-flex items-center gap-2 max-h-16;
+
+}
+
+.nav-btn.add {
+  @apply opacity-55;
+
+  &:hover {
+    @apply opacity-100;
+  }
+}
+
+.nav-btn .mat-icon {
+  @apply text-2xl leading-6;
+}
